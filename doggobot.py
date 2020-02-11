@@ -75,8 +75,10 @@ memes = [
 @bot.command(pass_context = True)                                                                                       #Meme's by goose
 
 async def goosememe(ctx):
-    await ctx.message.delete()                                              #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha woops
-    await ctx.send(f'> {random.choice(memes)} {ctx.author.mention}')
+    await ctx.message.delete()                  #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha woops
+    embirgoose = discord.Embed(color=0xf5a742)
+    embirgoose.set_image(url=random.choice(memes))
+    await ctx.send(embed=embirgoose)
     print(f'{ctx.author} got a goosememeTM.')
 
 
@@ -116,13 +118,15 @@ async def multiply(ctx,*,t):
     print(f'{ctx.author} multiplyed {t} and got {epicplus}')
 
     
-@bot.command(pass_context = True)                                                                                       #Artist info
+@bot.command(pass_context = True)                                                                                       #Lyrics
 async def lyrics(ctx,*,t):
     msga = await ctx.send(f"**Please wait, gettin' lyrics...**  :timer:")
     async with ctx.typing():
         genius = lyricsgenius.Genius("DlLkTctkbi8_eVJ5LUIssUw77yJmIO9Id_EcOmSkM18yutUALAbH5GWydQyuO4_w")
         song = genius.search_song(t)
-        await msga.edit(content = str(song.lyrics) + "\n**NOTE**: info/lyrics from _www.genius.com_")
+        lyrics_embed = discord.Embed(color=0x8d42f5)
+        lyrics_embed.add_field(name=song.title, value=list(song.lyrics))
+        await msga.edit(embed = lyrics_embed)
  
 
 
@@ -159,8 +163,11 @@ async def shiba(ctx):
         "https://preview.redd.it/qfw2onc35kf41.jpg?width=640&crop=smart&auto=webp&s=b603376c0d78c8654be853b8ceb4dbddabbafaab"           #28
 
 
-        ]        
-    await ctx.send(f'> {random.choice(shiba)} ')
+        ]         
+    embed = discord.Embed(color=0x6cf542)
+    embed.set_image(url=random.choice(shiba))
+    await ctx.channel.send(embed=embed)
+    
     print(f'{ctx.author} wants a pic of a shiba, so bot gave him.')
    
 
@@ -186,17 +193,32 @@ async def gift(ctx):
 my_api_key = "AIzaSyDxYePngOLzf1fm-zJY-gG139cbdZw74BY"
 my_cse_id = "002161540390636908943:d3dk1h9fjqy"
 
-def google_search(search_term, api_key, cse_id, **kwargs):
-    service = build("customsearch", "v1", developerKey=api_key)
-    res = service.cse().list(q=search_term, cx=cse_id, **kwargs).execute()
-    return res['items']
 
-results = google_search(
-    'stackoverflow site:www.minecraft.net', my_api_key, my_cse_id, num=10)
-for result in results:
-    pprint.pprint(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def google_search(search_term, api_key, cse_id, **kwargs):
+#     service = build("customsearch", "v1", developerKey=api_key)
+#     res = service.cse().list(q=search_term, cx=cse_id, **kwargs).execute()
+#    return res['items']
+# 
+# results = google_search(
+#     'stackoverflow site:www.minecraft.net', my_api_key, my_cse_id, num=10)
+# for result in results:
+# (GOOGLE API)     pprint.pprint(result)      
                          
-                         
 
 
 
@@ -267,7 +289,6 @@ for result in results:
 
 
 
-TOKEN = "nah"
+TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
 bot.run(TOKEN)
-
 
