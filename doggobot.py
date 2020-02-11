@@ -16,18 +16,14 @@ name = "doggobot.py 1.2 >> github.com/procopylua"
 game = discord.Game(name=name)
 stream = discord.Streaming(name = name,url = "https://www.twitch.tv/twitch/")
 
-@bot.event                                                                                                              #Launching doggy
+@bot.event                                                                                                              #Launching Doggy
 async def on_ready(pass_context = True): # if bot ready(launched), then(then means (:) )
-    
-    
-
   print("-----------------------------")
   print("-EPIC DOGGO SCRIPT LAUNCHED--")
   print("---------version 1.2---------")
   print("-----------cheeto------------")
   #channel = await bot.fetch_channel("665206516042825768")
   #await channel.send('**---------Bot launched---------\n----------Prefix-[>>]----------**')
-
   await bot.change_presence(status=discord.Status.online, activity=stream)
   
 
@@ -38,9 +34,9 @@ async def repeat(ctx,*,t):
   await ctx.send(t)
   print(f'{ctx.author} Said {t}, and because this command was "repeat", bot repeated that.')
 
-  @bot.event
-  async def on_member_join(member):
-      print(f'{member} has joined a server.')
+@bot.event
+async def on_member_join(member):
+      print(f'{member} has joined a server called.')
 
       
 @bot.command(pass_context = True)                                                                                       #Ping
@@ -54,13 +50,11 @@ hello = ["hi,","howdy,","nice to meet you,","hey,","hello,","what's up,","wyd,",
 
 
 @bot.command(pass_context=True)                                                                                       #Hi(first random test)
-
 async def hi(ctx):
     await ctx.message.delete()
     await ctx.send(f'{random.choice(hello)} {ctx.author.mention}!')
     print(f'{ctx.author} greeted with a bot.')
   
-
 
 memes = [ 
     "https://cdn.discordapp.com/attachments/622469613581631518/675798959662563348/Meme7.png",
@@ -70,20 +64,13 @@ memes = [
     "https://cdn.discordapp.com/attachments/622469613581631518/675799005552181256/Meme5.png",
     "https://cdn.discordapp.com/attachments/622469613581631518/675799026410455050/Meme4.png",
     "https://cdn.discordapp.com/attachments/622469613581631518/675799029531148308/Meme2.png" ]
-   
-
-@bot.command(pass_context = True)                                                                                       #Meme's by goose
-
+@bot.command(pass_context = True)                                                                                       #Memes by Goose
 async def goosememe(ctx):
     await ctx.message.delete()                                              #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha woops
     await ctx.send(f'> {random.choice(memes)} {ctx.author.mention}')
-    print(f'{ctx.author} got a goosememeTM.')
+    print(f'{ctx.author} got a goosememe™.')
 
-
-                                                                   
-
-
-                                                                    
+                                                                
 brained = [
     "imma big brain",
     "dont abuse it!",
@@ -92,14 +79,13 @@ brained = [
     "A+",
     "NGL that's was pretty easy",
     "gabe itch",
-    "you should be a shamed dude",
+    "you should be ashamed, dude",
     "remember, i cant do it wrong",
     "easyyy",
     "you really should teach math more",
     "yeah, letters wont work",
-    "even baby yoda can do this with 1 leg"
+    "even baby yoda can do this with 1 leg"]
 
-    ]
 
 @bot.command(pass_context = True)                                                                                       #Multiply
 async def multiply(ctx,*,t):
@@ -113,7 +99,7 @@ async def multiply(ctx,*,t):
         else:
           epicplus= epicplus * int(el)
     await ctx.send(f'{epicplus}, {random.choice(brained)}')
-    print(f'{ctx.author} multiplyed {t} and got {epicplus}')
+    print(f'{ctx.author} multiplied {t} and got {epicplus}')
 
     
 @bot.command(pass_context = True)                                                                                       #Artist info
@@ -123,22 +109,21 @@ async def lyrics(ctx,*,t):
         genius = lyricsgenius.Genius("DlLkTctkbi8_eVJ5LUIssUw77yJmIO9Id_EcOmSkM18yutUALAbH5GWydQyuO4_w")
         song = genius.search_song(t)
         await msga.edit(content = str(song.lyrics) + "\n**NOTE**: info/lyrics from _www.genius.com_")
- 
 
 
 @bot.command(pass_context = True)
 async def shiba(ctx):
     shiba = [
-        "https://i.imgur.com/fqMTE6t.jpg",          #1
-        "https://imgur.com/CkfRAO1",          #2
-        "https://imgur.com/tdmiveA",          #3
-        "https://imgur.com/F7fkgrS",          #4
-        "https://i.imgur.com/ddmBfkc.jpg",          #5
-        "https://i.imgur.com/M9koilm.jpg",          #6
-        "https://i.imgur.com/OWMbXux.jpg",          #7
-        "http://imgur.com/gallery/3tRILTi",          #8
-        "https://i.imgur.com/Lo5hsmY.jpg",          #9
-        "https://i.imgur.com/rBex74U.jpg",          #10
+        "https://i.imgur.com/fqMTE6t.jpg",                                                                                              #1
+        "https://imgur.com/CkfRAO1",                                                                                                    #2
+        "https://imgur.com/tdmiveA",                                                                                                    #3
+        "https://imgur.com/F7fkgrS",                                                                                                    #4
+        "https://i.imgur.com/ddmBfkc.jpg",                                                                                              #5
+        "https://i.imgur.com/M9koilm.jpg",                                                                                              #6
+        "https://i.imgur.com/OWMbXux.jpg",                                                                                              #7
+        "http://imgur.com/gallery/3tRILTi",                                                                                             #8
+        "https://i.imgur.com/Lo5hsmY.jpg",                                                                                              #9
+        "https://i.imgur.com/rBex74U.jpg",                                                                                              #10
         "https://preview.redd.it/tlltufyfzbf41.jpg?width=640&crop=smart&auto=webp&s=cfaa09924f6c60650562d4ee1e734f69afe468ea",          #11
         "https://preview.redd.it/tw6u6i2kjff41.jpg?width=640&crop=smart&auto=webp&s=3dc95856e6726e5b25d2dc6a49eac620bf21b3d4",          #12
         "https://preview.redd.it/rd14l5x3wbf41.jpg?width=640&crop=smart&auto=webp&s=06dd9ec8c32deb0c43b50586cdc1c056e1737b47",          #13
@@ -156,12 +141,9 @@ async def shiba(ctx):
         "https://preview.redd.it/hrhztrbs7of41.jpg?width=640&crop=smart&auto=webp&s=50a737a15c907edc22db81a74074d4efc08f6d88",          #25
         "https://preview.redd.it/ge5fpxg0eff41.jpg?width=640&crop=smart&auto=webp&s=f7f1b1dff3cdbdb4dbd02dbab58e4eae348fb46d",          #26
         "https://preview.redd.it/sj0o22ho2lf41.jpg?width=640&crop=smart&auto=webp&s=d5703c494c8ad87ab378bcad513bfa539aace157",          #27
-        "https://preview.redd.it/qfw2onc35kf41.jpg?width=640&crop=smart&auto=webp&s=b603376c0d78c8654be853b8ceb4dbddabbafaab"           #28
-
-
-        ]        
+        "https://preview.redd.it/qfw2onc35kf41.jpg?width=640&crop=smart&auto=webp&s=b603376c0d78c8654be853b8ceb4dbddabbafaab"]          #28
     await ctx.send(f'> {random.choice(shiba)} ')
-    print(f'{ctx.author} wants a pic of a shiba, so bot gave him.')
+    print(f'{ctx.author} wants a pic of a shiba, so bot gave him one.')
    
 
 @bot.command()
@@ -174,8 +156,6 @@ async def reaction(ctx):
     asyncio.sleep(20000)
     await ctx.message.delete()
                          
-
-
 
 @bot.command()
 async def gift(ctx):
@@ -197,76 +177,6 @@ for result in results:
     pprint.pprint(result)
                          
                          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 TOKEN = "nah"
 bot.run(TOKEN)
 
