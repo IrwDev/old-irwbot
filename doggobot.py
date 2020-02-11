@@ -267,7 +267,7 @@ for result in results:
 
 
 
-TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
+TOKEN = "nah"
 bot.run(TOKEN)
 
 
