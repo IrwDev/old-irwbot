@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import lyricsgenius
-import asyncio
+import time
 import urllib
 import pprint
 import json
@@ -64,9 +64,9 @@ memes = [
     "https://cdn.discordapp.com/attachments/622469613581631518/675799005552181256/Meme5.png",
     "https://cdn.discordapp.com/attachments/622469613581631518/675799026410455050/Meme4.png",
     "https://cdn.discordapp.com/attachments/622469613581631518/675799029531148308/Meme2.png" ]
-@bot.command(pass_context = True)                                                                                       #Memes by Goose
+@bot.command(pass_context = True)                                                                                       #Memes by the Goose
 async def goosememe(ctx):
-    await ctx.message.delete()                  #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha woops
+    await ctx.message.delete()                  #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha
     embirgoose = discord.Embed(color=0xf5a742)
     embirgoose.set_image(url=random.choice(memes))
     await ctx.send(embed=embirgoose)
@@ -161,7 +161,7 @@ async def reaction(ctx):
     await ctx.message.add_reaction('💚')
     await ctx.message.add_reaction('💙')
     print(f'{ctx.author} checked how does reaction works.')
-    asyncio.sleep(20000)
+    time.sleep(2.5)
     await ctx.message.delete()
                          
 
