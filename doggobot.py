@@ -166,28 +166,13 @@ async def reaction(ctx):
                          
 
 @bot.command()
-async def gift(ctx):
+async def fakegift(ctx):
     giftcode = list('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')
     await ctx.send("discord.gift/"+"".join(random.choices(giftcode, k=16)))
     print(f'{ctx.author} Generated a fake gift.')
 
 my_api_key = "AIzaSyDxYePngOLzf1fm-zJY-gG139cbdZw74BY"
 my_cse_id = "002161540390636908943:d3dk1h9fjqy"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # def google_search(search_term, api_key, cse_id, **kwargs):
@@ -203,4 +188,3 @@ my_cse_id = "002161540390636908943:d3dk1h9fjqy"
 
 TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
 bot.run(TOKEN)
-
