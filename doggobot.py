@@ -27,7 +27,7 @@ async def on_ready(pass_context = True): # if bot ready(launched), then(then mea
 
 @bot.command(pass_context = True)                                                                                       #Repeat
 async def repeat(ctx,*,t):   
-  await ctx.message.delete()
+#  await ctx.message.delete()
   await ctx.send(t)
   print(f'{ctx.author} Said {t}, and because this command was "repeat", bot repeated that.')
 
@@ -38,7 +38,7 @@ async def on_member_join(member):
       
 @bot.command(pass_context = True)                                                                                       #Ping
 async def ping(ctx):
-    await ctx.message.delete()
+ #   await ctx.message.delete()
     await ctx.send(f'Pong.```css\n {round(bot.latency * 1000)}ms```')
     print(f'{ctx.author} checked ping of a bot. Its was {round(bot.latency * 1000)}ms.')
 
@@ -48,7 +48,7 @@ hello = ["hi,","howdy,","nice to meet you,","hey,","hello,","what's up,","wyd,",
 
 @bot.command(pass_context=True)                                                                                       #Hi(first random test)
 async def hi(ctx):
-    await ctx.message.delete()
+ #   await ctx.message.delete()
     await ctx.send(f'{random.choice(hello)} {ctx.author.mention}!')
     print(f'{ctx.author} greeted with a bot.')
   
@@ -63,7 +63,7 @@ memes = [
     "https://cdn.discordapp.com/attachments/622469613581631518/675799029531148308/Meme2.png" ]
 @bot.command(pass_context = True)                                                                                       #Memes by the Goose
 async def goosememe(ctx):
-    await ctx.message.delete()                  #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha
+  #  await ctx.message.delete()                  #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha
     embirgoose = discord.Embed(color=0xf5a742)
     embirgoose.set_image(url=random.choice(memes))
     await ctx.send(embed=embirgoose)
