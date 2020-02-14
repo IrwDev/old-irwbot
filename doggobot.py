@@ -4,7 +4,7 @@ import lyricsgenius
 import time
 import urllib
 import json
-from googleapiclient.discovery import build
+# from googleapiclient.discovery import build
 
 bot = commands.Bot(command_prefix = ">>")
 
