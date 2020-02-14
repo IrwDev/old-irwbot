@@ -3,11 +3,8 @@ from discord.ext import commands
 import lyricsgenius
 import time
 import urllib
-import pprint
 import json
-
 from googleapiclient.discovery import build
-import pprint
 
 bot = commands.Bot(command_prefix = ">>")
 
