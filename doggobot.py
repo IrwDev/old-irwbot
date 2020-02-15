@@ -115,7 +115,9 @@ async def lyrics(ctx,*,t):
 
 @bot.command(pass_context = True)
 async def shiba(ctx):
-    # Используй в строках 119 и 120  путь к своей папке с картинками репозитория
+    # Используй в строках 121 и 122  путь к своей папке с картинками репозитория
+    # Calamity: C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics\\
+    # Irwing: *write it there pls kthx
     dogpic = random.choice(os.listdir("C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics"))
     await ctx.channel.send(file=discord.File("C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics\\%s" % dogpic))   
     print(f'{ctx.author} wants a pic of a shiba, so bot gave him one called {dogpic}')
