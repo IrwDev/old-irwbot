@@ -115,11 +115,9 @@ async def lyrics(ctx,*,t):
 
 @bot.command(pass_context = True)
 async def shiba(ctx):
-    # Используй в строках 121 и 122  путь к своей папке с картинками репозитория
-    # Calamity: C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics\\
-    # Irwing: *write it there pls kthx
-    dogpic = random.choice(os.listdir("C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics"))
-    await ctx.channel.send(file=discord.File("C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics\\%s" % dogpic))   
+    # Irwing: *done
+    dogpic = random.choice(os.listdir("C:\\Users\\Irwing\\Desktop\\stuffies\\Other code\\py\\doggobots\\doggy-bot(original)\\doggobot\\ShibaPics"))
+    await ctx.channel.send(file=discord.File("C:\\Users\\Irwing\\Desktop\\stuffies\\Other code\\py\\doggobots\\doggy-bot(original)\\doggobot\\ShibaPics\\%s" % dogpic))   
     print(f'{ctx.author} wants a pic of a shiba, so bot gave him one called {dogpic}')
 
 
@@ -154,6 +152,26 @@ my_cse_id = "002161540390636908943:d3dk1h9fjqy"
 # for result in results:
 # (GOOGLE API)     pprint.pprint(result)      
                          
+
+
+
+
+
+
+
+@bot.command()
+async def epicgamer(ctx):
+        gamerpercent = random.choice(range(0, 100))
+        await ctx.send(f'Your are an EPIC GAMER on {gamerpercent}%!')
+
+    
+
+
+
+
+
+
+
 
 TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
 bot.run(TOKEN)
