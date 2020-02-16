@@ -16,30 +16,30 @@ stream = discord.Streaming(name = name,url = "https://www.twitch.tv/twitch/")
 
 @bot.event                                                                                                              #Launching Doggy
 async def on_ready(pass_context = True): # if bot ready(launched), then(then means (:) )
-  print("-----------------------------")
-  print("-EPIC DOGGO SCRIPT LAUNCHED--")
-  print("---------version 1.2---------")
-  print("-----------cheeto------------")
-  #channel = await bot.fetch_channel("665206516042825768")
-  #await channel.send('**---------Bot launched---------\n----------Prefix-[>>]----------**')
-  await bot.change_presence(status=discord.Status.online, activity=stream)
+    print("-----------------------------")
+    print("-EPIC DOGGO SCRIPT LAUNCHED--")
+    print("---------version 1.2---------")
+    print("-----------cheeto------------")
+    #channel = await bot.fetch_channel("665206516042825768")
+    #await channel.send('**---------Bot launched---------\n----------Prefix-[>>]----------**')
+    await bot.change_presence(status=discord.Status.online, activity=stream)
   
 
 
 @bot.command(pass_context = True)                                                                                       #Repeat
 async def repeat(ctx,*,t):   
-#  await ctx.message.delete()
-  await ctx.send(t)
-  print(f'{ctx.author} Said {t}, and because this command was "repeat", bot repeated that.')
+    #  await ctx.message.delete()
+    await ctx.send(t)
+    print(f'{ctx.author} Said {t}, and because this command was "repeat", bot repeated that.')
 
 @bot.event
 async def on_member_join(member):
-      print(f'{member} has joined a server called.')
+    print(f'{member} has joined a server called.')
 
       
 @bot.command(pass_context = True)                                                                                       #Ping
 async def ping(ctx):
- #   await ctx.message.delete()
+    #   await ctx.message.delete()
     await ctx.send(f'Pong.```css\n {round(bot.latency * 1000)}ms```')
     print(f'{ctx.author} checked ping of a bot. Its was {round(bot.latency * 1000)}ms.')
 
@@ -49,7 +49,7 @@ hello = ["hi,","howdy,","nice to meet you,","hey,","hello,","what's up,","wyd,",
 
 @bot.command(pass_context=True)                                                                                       #Hi(first random test)
 async def hi(ctx):
- #   await ctx.message.delete()
+    #   await ctx.message.delete()
     await ctx.send(f'{random.choice(hello)} {ctx.author.mention}!')
     print(f'{ctx.author} greeted with a bot.')
   
@@ -64,7 +64,7 @@ memes = [
     "https://cdn.discordapp.com/attachments/622469613581631518/675799029531148308/Meme2.png" ]
 @bot.command(pass_context = True)                                                                                       #Memes by the Goose
 async def goosememe(ctx):
-  #  await ctx.message.delete()                  #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha
+    #  await ctx.message.delete()                  #haha 69 funny meme hahahahaha still laughing hahahaha funny poo hahaha
     embirgoose = discord.Embed(color=0xf5a742)
     embirgoose.set_image(url=random.choice(memes))
     await ctx.send(embed=embirgoose)
@@ -93,11 +93,11 @@ async def multiply(ctx,*,t):
       t = t.split(" ")
       f = 1
       for el in t:
-        if f == 1:
-          epicplus = int(el) 
-          f = 0
-        else:
-          epicplus= epicplus * int(el)
+          if f == 1:
+              epicplus = int(el) 
+              f = 0
+          else:
+              epicplus= epicplus * int(el)
     await ctx.send(f'{epicplus}, {random.choice(brained)}')
     print(f'{ctx.author} multiplied {t} and got {epicplus}')
 
@@ -115,9 +115,10 @@ async def lyrics(ctx,*,t):
 
 @bot.command(pass_context = True)
 async def shiba(ctx):
-    # Irwing: *done
-    dogpic = random.choice(os.listdir("C:\\Users\\Irwing\\Desktop\\stuffies\\Other code\\py\\doggobots\\doggy-bot(original)\\doggobot\\ShibaPics"))
-    await ctx.channel.send(file=discord.File("C:\\Users\\Irwing\\Desktop\\stuffies\\Other code\\py\\doggobots\\doggy-bot(original)\\doggobot\\ShibaPics\\%s" % dogpic))   
+    # Calamity: C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics
+    # Irwing: C:\\Users\\Irwing\\Desktop\\stuffies\\Other code\\py\\doggobots\\doggy-bot(original)\\doggobot\\ShibaPics
+    dogpic = random.choice(os.listdir("C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics"))
+    await ctx.channel.send(file=discord.File("C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics\\%s" % dogpic))   
     print(f'{ctx.author} wants a pic of a shiba, so bot gave him one called {dogpic}')
 
 
@@ -127,7 +128,7 @@ async def reaction(ctx):
     await ctx.message.add_reaction('💛')
     await ctx.message.add_reaction('💚')
     await ctx.message.add_reaction('💙')
-    print(f'{ctx.author} checked how does reaction works.')
+    print(f'{ctx.author} checked how does reaction work.')
     time.sleep(2.5)
     await ctx.message.delete()
                          
@@ -137,41 +138,16 @@ async def fakegift(ctx):
     giftcode = list('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')
     await ctx.send("discord.gift/"+"".join(random.choices(giftcode, k=16)))
     print(f'{ctx.author} Generated a fake gift.')
-
-my_api_key = "AIzaSyDxYePngOLzf1fm-zJY-gG139cbdZw74BY"
-my_cse_id = "002161540390636908943:d3dk1h9fjqy"
-
-
-# def google_search(search_term, api_key, cse_id, **kwargs):
-#     service = build("customsearch", "v1", developerKey=api_key)
-#     res = service.cse().list(q=search_term, cx=cse_id, **kwargs).execute()
-#    return res['items']
-# 
-# results = google_search(
-#     'stackoverflow site:www.minecraft.net', my_api_key, my_cse_id, num=10)
-# for result in results:
-# (GOOGLE API)     pprint.pprint(result)      
                          
 
-
-
-
-
-
-
 @bot.command()
-async def epicgamer(ctx):
-        gamerpercent = random.choice(range(0, 100))
-        await ctx.send(f'Your are an EPIC GAMER on {gamerpercent}%!')
-
-    
-
-
-
-
-
-
-
+async def epicgamer(ctx,*,t:discord.Member = None):
+    gamerpercent = random.choice(range(0, 100))
+    if t == None: t = ctx.author
+    if t == ctx.author:
+        await ctx.send(f"You are an EPIC GAMER on {gamerpercent}%!")
+    if t != ctx.author:
+        await ctx.send(f'{t.mention} is an EPIC GAMER on {gamerpercent}%!')
 
 TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
 bot.run(TOKEN)
