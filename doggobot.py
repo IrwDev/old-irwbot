@@ -16,10 +16,10 @@ stream = discord.Streaming(name = name,url = "https://www.twitch.tv/twitch/")
 
 @bot.event                                                                                                              #Launching Doggy
 async def on_ready(pass_context = True): # if bot ready(launched), then(then means (:) )
-    print("-----------------------------")
-    print("-EPIC DOGGO SCRIPT LAUNCHED--")
-    print("---------version 1.2---------")
-    print("-----------cheeto------------")
+    print("------------------------------")
+    print("--EPIC DOGGO SCRIPT LAUNCHED--")
+    print("-----------Alpha 13-----------")
+    print("------------cheeto------------")
     #channel = await bot.fetch_channel("665206516042825768")
     #await channel.send('**---------Bot launched---------\n----------Prefix-[>>]----------**')
     await bot.change_presence(status=discord.Status.online, activity=stream)
@@ -30,18 +30,18 @@ async def on_ready(pass_context = True): # if bot ready(launched), then(then mea
 async def repeat(ctx,*,t):   
     #  await ctx.message.delete()
     await ctx.send(t)
-    print(f'{ctx.author} Said {t}, and because this command was "repeat", bot repeated that.')
+    print(f'{ctx.author} said {t}, and because the command was "repeat", bot has repeated that.')
 
 @bot.event
 async def on_member_join(member):
-    print(f'{member} has joined a server called.')
+    print(f"{member} has joined a server called '{member.guild}'.")
 
       
 @bot.command(pass_context = True)                                                                                       #Ping
 async def ping(ctx):
     #   await ctx.message.delete()
     await ctx.send(f'Pong.```css\n {round(bot.latency * 1000)}ms```')
-    print(f'{ctx.author} checked ping of a bot. Its was {round(bot.latency * 1000)}ms.')
+    print(f'{ctx.author} checked the ping of the bot. Its was {round(bot.latency * 1000)}ms.')
 
 import random
 hello = ["hi,","howdy,","nice to meet you,","hey,","hello,","what's up,","wyd,","qq,","q,","A MAN HAS FALLEN INTO THE RIVER IN LEGO CITY, THIS MAN WAS"]
@@ -51,7 +51,7 @@ hello = ["hi,","howdy,","nice to meet you,","hey,","hello,","what's up,","wyd,",
 async def hi(ctx):
     #   await ctx.message.delete()
     await ctx.send(f'{random.choice(hello)} {ctx.author.mention}!')
-    print(f'{ctx.author} greeted with a bot.')
+    print(f'{ctx.author} was greeted by the bot.')
   
 
 memes = [ 
@@ -68,7 +68,7 @@ async def goosememe(ctx):
     embirgoose = discord.Embed(color=0xf5a742)
     embirgoose.set_image(url=random.choice(memes))
     await ctx.send(embed=embirgoose)
-    print(f'{ctx.author} got a goosememe™.')
+    print(f'{ctx.author} has got a goosememe™.')
 
                                                                 
 brained = [
@@ -104,13 +104,22 @@ async def multiply(ctx,*,t):
     
 @bot.command(pass_context = True)                                                                                       #Lyrics
 async def lyrics(ctx,*,t):
-    msga = await ctx.send(f"**Please wait, gettin' lyrics...**  :timer:")
+    await ctx.send(f"**Please wait, gettin' lyrics...**  :timer:")
     async with ctx.typing():
         genius = lyricsgenius.Genius("DlLkTctkbi8_eVJ5LUIssUw77yJmIO9Id_EcOmSkM18yutUALAbH5GWydQyuO4_w")
         song = genius.search_song(t)
-        lyrics_embed = discord.Embed(color=0x8d42f5)
-        lyrics_embed.add_field(name=song.title, value=list(song.lyrics))
-        await msga.edit(embed = lyrics_embed)
+        if len(song.title) and len(song.lyrics) >= 1024:
+            # put a file path down there, refer to lines 128 and 129
+            songlyr = "C:\\Users\\Голоушкины\\Documents\\Github\\Doggy-bot\\lyrics.txt"
+            await ctx.send("Your song lyrics are more than 1024 characters! Creating a text file...")
+            file = open(songlyr,'w')
+            file.write(song.artist+" - "+song.title+"\n-------------------------\n"+song.lyrics)
+            file.close()
+            file = open(songlyr,'r')
+            await ctx.send(file=discord.File("C:\\Users\\Голоушкины\\Documents\\Github\\Doggy-bot\\lyrics.txt"))
+            file.close()
+        else:
+            await ctx.send("**"+song.title+"\n-------------------------\n"+song.lyrics+"**")
  
 
 @bot.command(pass_context = True)
@@ -137,7 +146,7 @@ async def reaction(ctx):
 async def fakegift(ctx):
     giftcode = list('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')
     await ctx.send("discord.gift/"+"".join(random.choices(giftcode, k=16)))
-    print(f'{ctx.author} Generated a fake gift.')
+    print(f'{ctx.author} has generated a fake gift')
                          
 
 @bot.command()
@@ -148,6 +157,7 @@ async def epicgamer(ctx,*,t:discord.Member = None):
         await ctx.send(f"You are an EPIC GAMER on {gamerpercent}%!")
     if t != ctx.author:
         await ctx.send(f'{t.mention} is an EPIC GAMER on {gamerpercent}%!')
+    print(f"{ctx.author} checked someone's EPIC GAMER percentage")
 
 TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
 bot.run(TOKEN)
