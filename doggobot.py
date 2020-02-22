@@ -16,10 +16,10 @@ stream = discord.Streaming(name = name,url = "https://www.twitch.tv/twitch/")
 
 @bot.event                                                                                                              #Launching Doggy
 async def on_ready(pass_context = True): # if bot ready(launched), then(then means (:) )
-    print("------------------------------")
-    print("--EPIC DOGGO SCRIPT LAUNCHED--")
-    print("-----------Alpha 13-----------")
-    print("------------cheeto------------")
+    print("+----------------------------+")
+    print("+-EPIC DOGGO SCRIPT LAUNCHED-+")
+    print("+----------Alpha 13----------+")
+    print("+-----------cheeto-----------+")
     #channel = await bot.fetch_channel("665206516042825768")
     #await channel.send('**---------Bot launched---------\n----------Prefix-[>>]----------**')
     await bot.change_presence(status=discord.Status.online, activity=stream)
@@ -30,11 +30,11 @@ async def on_ready(pass_context = True): # if bot ready(launched), then(then mea
 async def repeat(ctx,*,t):   
     #  await ctx.message.delete()
     await ctx.send(t)
-    print(f'{ctx.author} said {t}, and because the command was "repeat", bot has repeated that.')
+    print(f'{ctx.author} said `{t}`, and because the command was "repeat", bot has repeated that.')
 
 @bot.event
 async def on_member_join(member):
-    print(f"{member} has joined a server called '{member.guild}'.")
+    print(f"{member} has joined a server called '{member.guild}'")
 
       
 @bot.command(pass_context = True)                                                                                       #Ping
@@ -97,7 +97,7 @@ async def multiply(ctx,*,t):
               epicplus = int(el) 
               f = 0
           else:
-              epicplus= epicplus * int(el)
+              epicplus = epicplus * int(el)
     await ctx.send(f'{epicplus}, {random.choice(brained)}')
     print(f'{ctx.author} multiplied {t} and got {epicplus}')
 
@@ -158,12 +158,14 @@ async def epicgamer(ctx,*,t:discord.Member = None):
     if t != ctx.author:
         await ctx.send(f'{t.mention} is an EPIC GAMER on {gamerpercent}%!')
     if gamerpercent == 100:
-        ctx.send("NOW THATS EPIC!")
+        await ctx.send("NOW THAT'S EPIC!")
     if gamerpercent == 0:
-        ctx.send("ok boomer")
+        await ctx.send("ok boomer")
     if gamerpercent == 69:
-        ctx.send("Nice")
-    print(f"{ctx.author} checked someone's EPIC GAMER percentage")
+        await ctx.send("Nice")
+    if gamerpercent >= 90:
+        await ctx.send("Nearly epic!")
+    print(f"{ctx.author} checked someone's EPIC GAMER percentage, it was {gamerpercent}%")
 
 TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
 bot.run(TOKEN)
