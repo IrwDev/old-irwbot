@@ -167,5 +167,12 @@ async def epicgamer(ctx,*,t:discord.Member = None):
         await ctx.send("Nearly epic!")
     print(f"{ctx.author} checked someone's EPIC GAMER percentage, it was {gamerpercent}%")
 
+
+@epicgamer.error
+async def membererror(ctx,error):
+    if isinstance(error, commands.BadArgument):
+        await ctx.send("Argument is not a mention or a username!")
+
+
 TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
 bot.run(TOKEN)
