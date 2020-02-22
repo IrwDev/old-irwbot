@@ -157,6 +157,12 @@ async def epicgamer(ctx,*,t:discord.Member = None):
         await ctx.send(f"You are an EPIC GAMER on {gamerpercent}%!")
     if t != ctx.author:
         await ctx.send(f'{t.mention} is an EPIC GAMER on {gamerpercent}%!')
+    if gamerpercent == 100:
+        ctx.send("NOW THATS EPIC!")
+    if gamerpercent == 0:
+        ctx.send("ok boomer")
+    if gamerpercent == 69:
+        ctx.send("Nice")
     print(f"{ctx.author} checked someone's EPIC GAMER percentage")
 
 TOKEN = "Njc1NzE4MTEzNDU4NjUxMTQ2.Xj7N1A.e1AZh6nFPp2qGuaVK68XvbbZ5gY"
