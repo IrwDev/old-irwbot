@@ -109,14 +109,13 @@ async def lyrics(ctx,*,t):
         genius = lyricsgenius.Genius("DlLkTctkbi8_eVJ5LUIssUw77yJmIO9Id_EcOmSkM18yutUALAbH5GWydQyuO4_w")
         song = genius.search_song(t)
         if len(song.title) and len(song.lyrics) >= 1024:
-            # put a file path down there, refer to lines 128 and 129
-            songlyr = "C:\\Users\\Голоушкины\\Documents\\Github\\Doggy-bot\\lyrics.txt"
+            songlyr = f"{os.getcwd()}\\lyrics.txt"
             await ctx.send("Your song lyrics are more than 1024 characters! Creating a text file...")
             file = open(songlyr,'w')
             file.write(song.artist+" - "+song.title+"\n-------------------------\n"+song.lyrics)
             file.close()
             file = open(songlyr,'r')
-            await ctx.send(file=discord.File("C:\\Users\\Голоушкины\\Documents\\Github\\Doggy-bot\\lyrics.txt"))
+            await ctx.send(file=discord.File(f"{os.getcwd()}\\lyrics.txt"))
             file.close()
         else:
             await ctx.send("**"+song.title+"\n-------------------------\n"+song.lyrics+"**")
@@ -124,10 +123,8 @@ async def lyrics(ctx,*,t):
 
 @bot.command(pass_context = True)
 async def shiba(ctx):
-    # Calamity: C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics
-    # Irwing: C:\\Users\\Irwing\\Desktop\\stuffies\\Other code\\py\\doggobots\\doggy-bot(original)\\doggobot\\ShibaPics
-    dogpic = random.choice(os.listdir("C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics"))
-    await ctx.channel.send(file=discord.File("C:\\Users\\Голоушкины\\Documents\\GitHub\\Doggy-bot\\ShibaPics\\%s" % dogpic))   
+    dogpic = random.choice(os.listdir(f"{os.getcwd()}\\ShibaPics"))
+    await ctx.channel.send(file=discord.File(f"{os.getcwd()}\\ShibaPics\\%s" % dogpic))   
     print(f'{ctx.author} wants a pic of a shiba, so bot gave him one called {dogpic}')
 
 
